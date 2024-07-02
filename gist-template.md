@@ -3,7 +3,7 @@ This tutorial introduces regular expressions with a email-validating example dec
 
 ## Summary
 
-The following regular expression validates that an email contains
+The following regular expression validates that an email matches a specified pattern by deconstructing the string into 3 groups: the user part of the email address, the domain name, and the end part of the domain, seperated by the necessary character symbols. Each group contains a bracket expression that specifies what each section can contain. This pattern does not require the string to meet all of the requirements, meaning the string segment must contain at least one character from the specified set `[]` to pass the regex validation.
 
 ## Table of Contents
 
@@ -24,7 +24,7 @@ The following regular expression validates that an email contains
 `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
 Where `/ /` means the expression should be interpreted literally
 `^` = anchor matches the start position
-`()` = first capturing group
+`()` = first capturing group - user address of email
 `[]` = bracket expression holds what we want to match
 `a-z` = range of letters allowed (case-sensitive)
 `0-9` = specifies allowed range of numbers
@@ -32,7 +32,7 @@ Where `/ /` means the expression should be interpreted literally
 `+` = quantifier used to match pattern 1 or more times
 ~ end first capturing group ~
 `@` = must include literal text
-`()` = second capturing group
+`()` = second capturing group - domain name
 `[]` = bracket expression holds pattern two
 `\d` = character class used to match any digit 0-9
 `a-z` = range of letters allowed (case-sensitive)
@@ -40,7 +40,7 @@ Where `/ /` means the expression should be interpreted literally
 `+` = quantifier used to match pattern 1 or more times
 ~ end second capturing group ~
 `.` = must include literal text
-`()` = third capturing group
+`()` = third capturing group - .domain end
 `[]` = bracket expression holds what we want to match
 `a-z` = range of letters allowed (case-sensitive)
 `\.` = characters allowed
